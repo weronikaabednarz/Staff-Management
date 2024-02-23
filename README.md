@@ -1,6 +1,6 @@
 # Data Entry Form Project
 
-Window application for data entry:
+Window application for data entry form:
 - shows the entered data in the terminal,
 - verifies the entered data,
 - if there is an error or a closing option, a window pops up.
