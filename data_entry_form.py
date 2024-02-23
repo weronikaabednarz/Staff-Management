@@ -21,7 +21,7 @@ def enter_data():
     print("-----------------------------------------------------------------------")
 
 def cancel():
-    print("hi")
+    window.destroy()
 
 window = tkinter.Tk()
 window.title("Data Entry Form")
