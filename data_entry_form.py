@@ -1,6 +1,28 @@
 import tkinter
 from tkinter import ttk
 
+def enter_data():
+    # user info
+    firstname = first_name_entry.get()
+    lastname = last_name_entry.get()
+    print("First name: ", firstname, "\tLast name: ", lastname)
+
+    title = title_combobox.get()
+    age = age_spinbox.get()
+    nationality = nationality_combobox.get()
+    gender = gender_spinbox.get()
+    print("Title: ", title, "\tAge: ", age, "\tNationality: ", nationality, "\tGender: ", gender)
+
+    # course info
+    registrationstatus = reg_status_var.get()
+    numcourses = numcourses_spinbox.get()
+    numsemesters = numsemesters_spinbox.get()
+    print("Registration status: ", registrationstatus, "\nCourses: ", numcourses, "\tSemesters: ", numsemesters)
+    print("-----------------------------------------------------------------------")
+
+def cancel():
+    print("hi")
+
 window = tkinter.Tk()
 window.title("Data Entry Form")
 
@@ -50,15 +72,18 @@ courses_frame.grid(row = 1, column = 0, sticky = "news", padx = 20, pady = 10)
 
 registered_label = tkinter.Label(courses_frame, text = "Registration Status")
 registered_label.grid(row = 0, column = 0)
-registered_check = tkinter.Checkbutton(courses_frame, text = "Currently Registered")
+reg_status_var = tkinter.StringVar(value = "not registered")
+registered_check = tkinter.Checkbutton(courses_frame, text = "Currently Registered",
+                                       variable = reg_status_var, onvalue = "registered",
+                                       offvalue = "not registered")
 registered_check.grid(row = 1, column = 0)
 
-numcourses_label = tkinter.Label(courses_frame, text = "# Completed Courses")
+numcourses_label = tkinter.Label(courses_frame, text = "Completed Courses")
 numcourses_label.grid(row = 0, column = 1)
 numcourses_spinbox = tkinter.Spinbox(courses_frame, from_ = 0, to = "infinity")
 numcourses_spinbox.grid(row = 1, column = 1)
 
-numsemesters_label = tkinter.Label(courses_frame, text = "# Semesters")
+numsemesters_label = tkinter.Label(courses_frame, text = "Semesters")
 numsemesters_label.grid(row = 0, column = 2)
 numsemesters_spinbox = tkinter.Spinbox(courses_frame, from_ = 0, to = "infinity")
 numsemesters_spinbox.grid(row = 1, column = 2)
@@ -73,9 +98,9 @@ terms_check = tkinter.Checkbutton(terms_frame, text = "I accept all terms and co
 terms_check.grid(row = 0, column = 0)
 
 # button
-button_enter = tkinter.Button(frame, text = "Enter data")
+button_enter = tkinter.Button(frame, text = "Enter data", command = enter_data)
 button_enter.grid(row = 3, column = 0, sticky = "e", padx = 20, pady = 10)
 
-button_cancel = tkinter.Button(frame, text = "Cancel")
+button_cancel = tkinter.Button(frame, text = "Cancel", command = cancel)
 button_cancel.grid(row = 3, column = 0, sticky = "w", padx = 20, pady = 10)
 window.mainloop()
