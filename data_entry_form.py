@@ -1,27 +1,42 @@
 import tkinter
 from tkinter import ttk
+from tkinter import messagebox
 
 def enter_data():
-    # user info
-    firstname = first_name_entry.get()
-    lastname = last_name_entry.get()
-    print("First name: ", firstname, "\tLast name: ", lastname)
+    accepted = accept_var.get()
 
-    title = title_combobox.get()
-    age = age_spinbox.get()
-    nationality = nationality_combobox.get()
-    gender = gender_spinbox.get()
-    print("Title: ", title, "\tAge: ", age, "\tNationality: ", nationality, "\tGender: ", gender)
+    if accepted == "Accepted":
+        # user info
+        firstname = first_name_entry.get()
+        lastname = last_name_entry.get()
 
-    # course info
-    registrationstatus = reg_status_var.get()
-    numcourses = numcourses_spinbox.get()
-    numsemesters = numsemesters_spinbox.get()
-    print("Registration status: ", registrationstatus, "\nCourses: ", numcourses, "\tSemesters: ", numsemesters)
-    print("-----------------------------------------------------------------------")
+        if firstname and lastname:
+            print("First name: ", firstname, "\tLast name: ", lastname)
+
+            title = title_combobox.get()
+            age = age_spinbox.get()
+            nationality = nationality_combobox.get()
+            gender = gender_spinbox.get()
+            print("Title: ", title, "\tAge: ", age, "\tNationality: ", nationality, "\tGender: ", gender)
+
+            # course info
+            registrationstatus = reg_status_var.get()
+            numcourses = numcourses_spinbox.get()
+            numsemesters = numsemesters_spinbox.get()
+            print("Registration status: ", registrationstatus, "\nCourses: ", numcourses, "\tSemesters: ", numsemesters)
+            print("-----------------------------------------------------------------------")
+        else:
+            tkinter.messagebox.showwarning(title = "Error", message = "First name and last name are required.")
+    else:
+        tkinter.messagebox.showwarning(title = "Error", message = "You have not accepted the terms.")
 
 def cancel():
-    window.destroy()
+    response = tkinter.messagebox.askquestion(title = "Ask", message = "Are you sure you want to close the window?")
+
+    if response == 'yes':
+        window.destroy()
+    else:
+        pass
 
 window = tkinter.Tk()
 window.title("Data Entry Form")
@@ -94,7 +109,10 @@ for widget in courses_frame.winfo_children():
 # accept terms
 terms_frame = tkinter.LabelFrame(frame, text = "Terms & Conditions")
 terms_frame.grid(row = 2, column = 0, sticky = "news", padx = 20, pady = 10)
-terms_check = tkinter.Checkbutton(terms_frame, text = "I accept all terms and conditions.")
+
+accept_var = tkinter.StringVar(value = "Not accepted")
+terms_check = tkinter.Checkbutton(terms_frame, text = "I accept all terms and conditions.",
+                                  variable = accept_var, onvalue = "Accepted", offvalue = "Not accepted")
 terms_check.grid(row = 0, column = 0)
 
 # button
