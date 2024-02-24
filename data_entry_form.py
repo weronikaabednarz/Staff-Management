@@ -1,8 +1,9 @@
 import tkinter
 from tkinter import ttk
 from tkinter import messagebox
-import os
-import openpyxl
+import os           # for excel
+import openpyxl     # for excel
+import sqlite3      # for sql
 
 def enter_data():
     accepted = accept_var.get()
@@ -27,7 +28,8 @@ def enter_data():
             numsemesters = numsemesters_spinbox.get()
             print("Registration status: ", registrationstatus, "\nCourses: ", numcourses, "\tSemesters: ", numsemesters)
             print("-----------------------------------------------------------------------")
-        
+
+# for excel        
             # check if a file exists
             filepath = "C:\\Users\\weron\\Desktop\\projekty\\Tkinter Data Entry Form Project\\database.xlsx"
 
@@ -45,6 +47,27 @@ def enter_data():
                           registrationstatus, numcourses, numsemesters])
             workbook.save(filepath)
 
+# for sql
+            # create a connection with sqlite 3, connects aotumatically without checking if db exists
+            conn = sqlite3.connect('data.db')       # if doesn't, db and connection will be created
+            table_create_query = '''CREATE TABLE IF NOT EXISTS Student_Data
+                    ("First name" TEXT, "Last name" TEXT, "Title" TEXT, "Age" INT, "Nationality" TEXT,
+                    "Gender" TEXT, "Registration status" TEXT, "Courses" INT, "Semesters" INT)
+            '''
+            conn.execute(table_create_query)
+
+            # insert data
+            data_insert_query = '''INSERT INTO Student_Data ("First name", "Last name", "Title", "Age",
+            "Nationality", "Gender", "Registration status", "Courses", "Semesters") VALUES 
+            (?, ?, ?, ?, ?, ?, ?, ?, ?)'''
+            data_insert_tuple = (firstname, lastname, title, age, nationality, gender,
+                                 registrationstatus, numcourses, numsemesters)
+            cursor = conn.cursor()      # it will execute all the queries and then decide where everything is being inserted
+            cursor.execute(data_insert_query, data_insert_tuple)    #(execute queries, put this data) use this data in your execution
+            conn.commit()       # save the data in the database
+            conn.close()
+#--------
+            
         else:
             tkinter.messagebox.showwarning(title = "Error", message = "First name and last name are required.")
     else:
