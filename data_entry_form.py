@@ -29,14 +29,14 @@ def enter_data():
             print("-----------------------------------------------------------------------")
         
             # check if a file exists
-            filepath = "C:\\Users\\weron\\Desktop\\projekty\\Tkinter Data Entry Form Project\\data.xlsx"
+            filepath = "C:\\Users\\weron\\Desktop\\projekty\\Tkinter Data Entry Form Project\\database.xlsx"
 
             if not os.path.exists(filepath):
                 workbook = openpyxl.Workbook()
                 # active = currently open
                 sheet = workbook.active
                 heading = ["First name", "Last name", "Title", "Age", "Nationality",
-                           "Gender", "Courses", "Semesters", "Registration status"]
+                           "Gender", "Registration status", "Courses", "Semesters"]
                 sheet.append(heading)
                 workbook.save(filepath)
             workbook = openpyxl.load_workbook(filepath) # load workbook function
