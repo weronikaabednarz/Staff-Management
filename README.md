@@ -24,4 +24,8 @@ Appearance of the application during operation:
 
 - entry in the terminal:
 
-![5](https://github.com/weronikaabednarz/Tkinter-Data-Entry-Form-Project/blob/main/images/terminal.jpg)
+![5](https://github.com/weronikaabednarz/Tkinter-Data-Entry-Form-Project/blob/main/images/data_in_terminal.jpg)
+
+# Creating an Excel file using Python, adding headers, inserting and saving form data into Excel using Python:
+
+![6](https://github.com/weronikaabednarz/Tkinter-Data-Entry-Form-Project/blob/main/images/data_in_excel.jpg)
