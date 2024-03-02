@@ -1,5 +1,5 @@
 # Data Entry Form Project
-
+ 
 Window application of the data entry form:
 - shows the entered data in the terminal,
 - verifies the entered data,
