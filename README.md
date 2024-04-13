@@ -11,9 +11,9 @@ Technologies used in the project: Python & Tkinter with imports:
 - os - module with methods for interacting with the operating system, like creating files and directories, etc.,
 - openpyxl - library for reading, writing and modifying Excel (with extension xlsx/xlsm/xltx/xltm) files,
 - sqlite3 - library for creating, modifying and managing relational databases (e.g. SQLite database) files.
-
+   
 Initial application appearance:
-
+   
 ![1](https://github.com/weronikaabednarz/Tkinter-Data-Entry-Form-Project/blob/main/images/data_entry_form.jpg)
 
 Appearance of the application during operation:
