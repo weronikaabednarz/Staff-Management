@@ -6,7 +6,7 @@ Window application of the data entry form:
 - saves the entered data in an excel file,
 - saves the entered data in a SQLite database file,
 - if there is an error or a closing option, a window pops up.
- 
+
 Technologies used in the project: Python & Tkinter with imports:
 - os - module with methods for interacting with the operating system, like creating files and directories, etc.,
 - openpyxl - library for reading, writing and modifying Excel (with extension xlsx/xlsm/xltx/xltm) files,
