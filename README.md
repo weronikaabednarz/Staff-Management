@@ -13,9 +13,9 @@ Technologies used in the project: Python & Tkinter with imports:
 - sqlite3 - library for creating, modifying and managing relational databases (e.g. SQLite database) files.
    
 Initial application appearance:
-   
-![1](https://github.com/weronikaabednarz/Tkinter-Data-Entry-Form-Project/blob/main/images/data_entry_form.jpg)
 
+![1](https://github.com/weronikaabednarz/Tkinter-Data-Entry-Form-Project/blob/main/images/data_entry_form.jpg)
+  
 Appearance of the application during operation:
 - selection windows:
 
