@@ -1,5 +1,5 @@
 # Staff Management - Data Entry Form Project
- 
+  
 ## About project
 The aim of the project was to develop a **window application** of the **data entry form** which:
 - shows the entered data in the terminal,
